@@ -96,7 +96,7 @@ Please ensure the following packages are installed:
 - mongodb
 - prompt-sync
 
-Run npm install to install the dependencies. MongoDB should be active. Start the server with node app.mjs(some time it take two attempts to start)
+Run npm install to install the dependencies. MongoDB should be active. Start the server with node app.mjs(some time it take two attempts to start).
 
 ## Running Unit Tests and Test Coverage
 To run the unit tests, ensure the server is running in the background (Use two terminal). Then, execute the tests using the following command:
