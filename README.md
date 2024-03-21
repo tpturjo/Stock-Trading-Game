@@ -18,7 +18,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 ## API/HTTP Requests & Services
 ### 1. User Registration Feature
 - Endpoint: POST /users/register
-- Request syntax: { username: 'newUser', password: 'newPass' }
+- Data: { username: 'newUser', password: 'newPass' }
 - Description: This service registers a new user with a unique username and password, automatically creating a portfolio for them.
 - Feature Supported: User Management
 #### Unit Tests:
@@ -27,7 +27,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Verifies that user is correctly saved in the database: Checks if the new user data is accurately stored in the database.
 ### 2. User Login Feature
 - Endpoint: POST /users/login
-- Request syntax:  { username: 'user', password: 'pass' }
+- Data: { username: 'user', password: 'pass' }
 - Description: Authenticates a user by their username and password, allowing access to their account.
 - Feature Supported: Authentication
 #### Unit Tests:
@@ -36,7 +36,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Successfully logs in with the correct username and password: Confirms successful login with correct credentials.
 ### 3. Game Creation Authorization
 - Endpoint: POST /game/create and Post /users/adminDelaration
-- Request syntax: { username: 'user', code: '1234' }; for  /users/adminDelaration And  {
+- Data: { username: 'user', code: '1234' }; for  /users/adminDelaration And  {
           adminUsername: adminUsername,
           startingBalance: 3000,
           maxPlayers: 5
@@ -49,7 +49,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Successfully creates a game with an admin user: Validates that an admin user can successfully create a new game.
 ### 4. Starting Cash Check-Up for General and Game Context
 - Endpoints: Implicit within POST /game/join and GET /portfolio/:username
-- Request syntax: { username, gameId } for  POST /game/join and  /portfolio/${username} for GET /portfolio/:username
+- Data: { username, gameId } for  POST /game/join and  /portfolio/${username} for GET /portfolio/:username
 - Description: Ensures users have the correct starting cash in both their general portfolio and within any game they join.
 - Feature Supported: Portfolio and Game Management
 #### Unit Tests:
@@ -58,7 +58,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Verifies initial cash in joined game: Ensures the user's game-specific portfolio has the correct starting cash.
 ### 5. Portfolio Buy and Sell Features
 - Endpoints: POST /portfolio/buy, POST /portfolio/sell
-- Request syntax:  { username, symbol: stockSymbol, quantity }
+- Data:  { username, symbol: stockSymbol, quantity }
 - Description: Handles the buying and selling of stocks for a user's portfolio, affecting both general and game-specific portfolios.
 - Feature Supported: Trading Operations
 #### Unit Tests:
@@ -82,7 +82,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Handles request for non-existent user: Verifies the system's response to transaction history requests for users that do not exist.
 ### 8. Game Ending And Declare Winner Functionality
 - Endpoint: POST /game/end
-- Request syntax:{ adminUsername, gameId }
+- Data: { adminUsername, gameId }
 - Description: Ends a game and calculates the winner based on the final portfolio valuation of the participants.
 - Feature Supported: Game Management
 #### Unit Tests:
@@ -91,7 +91,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Handles ending a non-existent or already ended game: Checks the response to attempts at ending games that cannot be found or have already concluded.
 ### 9. Change Password
 - Endpoint:POST /users/change-password
-- Request syntax:{ username: 'turjo', oldPassword: 'pass', newPassword: 'newpass' }
+- Data: { username: 'turjo', oldPassword: 'pass', newPassword: 'newpass' }
 - Description: Allows users to update their password, given they provide the correct current password for security purposes.
 - Feature Supported: Account Security
 #### Unit Tests:
