@@ -12,7 +12,7 @@ This repository consists of a Node.js project using Express.js to build a stock 
 The application uses a Model-View-Controller (MVC) architecture:
 
 - Model: Defines the data structure and database operations. Models include User, Portfolio, and Game.
-- View: Not implemented yet. will be on final submission
+- View: Not implemented yet. will be on final submission. Right now unit test intrects with the app.
 - Controller: Handles the application logic, interacts with models to process incoming data, and responds to client requests. Controllers are divided into users (users.js), portfolios (portfolios.js), and games (game.js).
 
 ## API/HTTP Requests & Services
@@ -33,7 +33,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Fails to login with an incorrect password: Ensures that the wrong password blocks login attempts.
 - Successfully logs in with the correct username and password: Confirms successful login with correct credentials.
 ### 3. Game Creation Authorization
-- Endpoint: POST /game/create
+- Endpoint: POST /game/create and Post /users/adminDelaration
 - Description: Enables an admin user to create a new game, setting parameters like starting balance and max players.
 - Feature Supported: Game Management
 #### Unit Tests:
