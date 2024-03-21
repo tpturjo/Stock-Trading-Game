@@ -18,6 +18,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 ## API/HTTP Requests & Services
 ### 1. User Registration Feature
 - Endpoint: POST /users/register
+- Request syntax: { username: 'newUser', password: 'newPass' }
 - Description: This service registers a new user with a unique username and password, automatically creating a portfolio for them.
 - Feature Supported: User Management
 #### Unit Tests:
@@ -26,6 +27,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Verifies that user is correctly saved in the database: Checks if the new user data is accurately stored in the database.
 ### 2. User Login Feature
 - Endpoint: POST /users/login
+- Request syntax:  { username: 'user', password: 'pass' }
 - Description: Authenticates a user by their username and password, allowing access to their account.
 - Feature Supported: Authentication
 #### Unit Tests:
@@ -34,6 +36,11 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Successfully logs in with the correct username and password: Confirms successful login with correct credentials.
 ### 3. Game Creation Authorization
 - Endpoint: POST /game/create and Post /users/adminDelaration
+- Request syntax: { username: 'user', code: '1234' }; for  /users/adminDelaration And  {
+          adminUsername: adminUsername,
+          startingBalance: 3000,
+          maxPlayers: 5
+        }; for /game/create 
 - Description: Enables an admin user to create a new game, setting parameters like starting balance and max players.
 - Feature Supported: Game Management
 #### Unit Tests:
@@ -42,6 +49,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Successfully creates a game with an admin user: Validates that an admin user can successfully create a new game.
 ### 4. Starting Cash Check-Up for General and Game Context
 - Endpoints: Implicit within POST /game/join and GET /portfolio/:username
+- Request syntax: { username, gameId } for  POST /game/join and  /portfolio/${username} for GET /portfolio/:username
 - Description: Ensures users have the correct starting cash in both their general portfolio and within any game they join.
 - Feature Supported: Portfolio and Game Management
 #### Unit Tests:
@@ -50,6 +58,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Verifies initial cash in joined game: Ensures the user's game-specific portfolio has the correct starting cash.
 ### 5. Portfolio Buy and Sell Features
 - Endpoints: POST /portfolio/buy, POST /portfolio/sell
+- Request syntax:  { username, symbol: stockSymbol, quantity }
 - Description: Handles the buying and selling of stocks for a user's portfolio, affecting both general and game-specific portfolios.
 - Feature Supported: Trading Operations
 #### Unit Tests:
@@ -57,6 +66,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Allows a user to buy/sell stock within a game: Validates stock transactions within the context of a game.
 ### 6. Player Portfolio Tracking
 - Endpoint: GET /portfolio/:username
+- Request syntax: /portfolio/${username}
 - Description: Retrieves the detailed information of a user's portfolio, including assets, cash, and valuation.
 - Feature Supported: Portfolio Management
 #### Unit Tests:
@@ -64,6 +74,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Handle Non-Existent User Portfolio: Tests the system's response when attempting to access a portfolio for a non-existent user.
 ### 7. Transaction History
 - Endpoint: GET /portfolio/:username/transactions
+- Request syntax: /portfolio/${username}/transactions
 - Description: Provides a history of all transactions made within a user's portfolio.
 - Feature Supported: Portfolio Management
 #### Unit Tests:
@@ -71,6 +82,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Handles request for non-existent user: Verifies the system's response to transaction history requests for users that do not exist.
 ### 8. Game Ending And Declare Winner Functionality
 - Endpoint: POST /game/end
+- Request syntax:{ adminUsername, gameId }
 - Description: Ends a game and calculates the winner based on the final portfolio valuation of the participants.
 - Feature Supported: Game Management
 #### Unit Tests:
@@ -79,6 +91,7 @@ The application uses a Model-View-Controller (MVC) architecture:
 - Handles ending a non-existent or already ended game: Checks the response to attempts at ending games that cannot be found or have already concluded.
 ### 9. Change Password
 - Endpoint:POST /users/change-password
+- Request syntax:{ username: 'turjo', oldPassword: 'pass', newPassword: 'newpass' }
 - Description: Allows users to update their password, given they provide the correct current password for security purposes.
 - Feature Supported: Account Security
 #### Unit Tests:

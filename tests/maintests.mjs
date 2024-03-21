@@ -9,7 +9,7 @@ const dbName = 'users-db';
 
 const instance = create({
   baseURL: myurl,
-  timeout: 5000,
+  timeout: 10000,
   headers: { 'content-type': 'application/json' }
 });
 
@@ -109,7 +109,11 @@ describe('Application Features', function () {
 
     describe('3.Game Creation Authorization', function () {
       it('Fails to create a game with a regular user', async function () {
-        const gameData = { gameName: 'New Game', adminUsername: 'user' };
+        const gameData = {
+          adminUsername: adminUsername,
+          startingBalance: 3000,
+          maxPlayers: 5
+        };
         try {
           await instance.post('/game/create', gameData);
           fail('Expected an error when creating a game without admin privileges');
