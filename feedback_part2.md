@@ -1,5 +1,10 @@
 
 
+
+
+
+
+
 # Part II Feedback CS3100 (due Mar 19/20, 2024)
 
 ## Evaluation
@@ -56,7 +61,7 @@ Credit will be equally divided among 9 features, portioned as follows:
 
 **00/10 percent** late penalty
 
-**00/108 points** total
+* **108.00/108 points** TOTAL
 
 
 
