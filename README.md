@@ -4,6 +4,7 @@ This repository consists of a Node.js project using Express.js to build a stock 
 - app.mjs: The main entry point of the application, setting up the Express server and API routes.
 - controller/: Contains the controllers for users, portfolios, and game functionalities, handling the logic for API endpoints.
 - model/: Includes the models for user, portfolio, and game, representing the data structure and interactions with the MongoDB database.
+- View/: All the front end HTML pages,CSS and JavaScript \for the client side.
 - utils/: Utilities and helper functions such as database connection (db.mjs) and stock price simulation (stockPrice.mjs).
 - tests: A test suite for validating the application's functionality.
 
@@ -12,8 +13,12 @@ This repository consists of a Node.js project using Express.js to build a stock 
 The application uses a Model-View-Controller (MVC) architecture:
 
 - Model: Defines the data structure and database operations. Models include User, Portfolio, and Game.
-- View: Not implemented yet. will be on final submission. Right now unit test intrects with the app.
+- View: Implented client SIde front end. Have all the HTML,CSS and Java script for the client side.
 - Controller: Handles the application logic, interacts with models to process incoming data, and responds to client requests. Controllers are divided into users (users.js), portfolios (portfolios.js), and games (game.js).
+
+## Demo Video:
+The demo video show how to operate each feature(9 total) using the client GUI/web site. All the features are working properly.
+- Google Drive link: https://drive.google.com/file/d/17b_XvBdmI8xFBJ6RI-oeieIB6wUiixTY/view?usp=sharing
 
 ## API/HTTP Requests & Services
 ### 1. User Registration Feature
@@ -108,9 +113,13 @@ Please ensure the following packages are installed:
 - mocha
 - mongodb
 - prompt-sync
+- express-session
+- body-parser
+
 
 Run npm install to install the dependencies. MongoDB should be active. Start the server with node app.mjs(some time it take two attempts to start).
 
+### note: Use live server on the  start the User Log in Page. then you can navigate to othe rpages easily. 
 ## Running Unit Tests and Test Coverage
 To run the unit tests, ensure the server is running in the background (Use two terminal). Then, execute the tests using the following command:
 - npx mocha ./tests/maintests.mjs
