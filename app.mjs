@@ -1,22 +1,23 @@
 import express, { json, urlencoded } from 'express';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 const port = 3000;
 
+// Define __dirname relative to the current module file
+const __dirname = dirname(fileURLToPath(import.meta.url));
+app.use(express.static(__dirname + '/view'));
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-
 import { connectToDB, closeDBConnection } from './utils/db.mjs';
-import { registerUser, loginUser,changePassword,adminDelaration } from './controller/users.js';
-import { getPortfolio,buyStock, sellStock,getTransactions} from './controller/portfolios.js';
-import { createGame, endGame,joinGame } from './controller/game.js';
-
+import { registerUser, loginUser, changePassword, adminDelaration } from './controller/users.js';
+import { getPortfolio, buyStock, sellStock, getTransactions } from './controller/portfolios.js';
+import { createGame, endGame, joinGame } from './controller/game.js';
 
 var server;
-
-
 
 // Connect to the database and start the server
 async function createServer() {
@@ -26,7 +27,7 @@ async function createServer() {
         app.post('/users/register', registerUser); 
         app.post('/users/login', loginUser);
         app.post('/users/change-password', changePassword);
-        app.post('/users/adminDelaration',adminDelaration)
+        app.post('/users/adminDelaration', adminDelaration);
         app.get('/portfolio/:username', getPortfolio);
         app.post('/portfolio/buy', buyStock);
         app.post('/portfolio/sell', sellStock);
@@ -34,22 +35,22 @@ async function createServer() {
         app.post('/game/create', createGame);
         app.post('/game/end', endGame);
         app.post('/game/join', joinGame);
+
         server = app.listen(port, () => {
             console.log('Example app listening at http://localhost:%d', port);
-    });   
+        });   
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
 createServer();
 
-
 process.on('SIGINT', () => {
     console.info('SIGINT signal received.');
     console.log('Closing Mongo Client.');
-    server.close(async function(){
-      let msg = await closeDBConnection()   ;
+    server.close(async function() {
+      let msg = await closeDBConnection();
       console.log(msg);
     });
-  });
+});

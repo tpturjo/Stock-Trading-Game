@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Declaration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div id="adminDeclaration" class="box">
+            <div class="back-button-container">
+                <a href="admin.html" class="back-button">Back to Admin Panel</a>
+            </div>            
+            <h2>Grant Admin Status</h2>
+            <form id="adminForm" action="http://localhost:3000/users/adminDelaration" method="POST">
+                <div>
+                    <label for="username" style="font-family: 'Courier New', Courier, monospace;
+                    font-size: 30px;">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="code" style="font-family: 'Courier New', Courier, monospace;
+                    font-size: 30px;">Admin Code:</label>
+                    <input type="password" id="code" name="code" required>
+                </div>
+                <div style>
+                    <button type="submit" style="padding: 10px; border-radius: 10px; width: 150px;
+                margin-top: 10px;">Grant Admin</button>
+                </div>
+            </form>
+        </div>
+    </div>
+      
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('adminGranted') === 'true') {
+            alert('Admin status granted successfully!');
+        } else if (urlParams.get('error') === 'true') {
+            alert('Error granting admin status. Please check the admin code.');
+        }
+    });
+</script>
+
+</html>

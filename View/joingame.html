@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="login.html">Home</a> |
+        <a href="protfolio.html">Portfolio</a> |
+        <a href="buysell.html">Buy/Sell Stocks</a> |
+        <a href="transactions.html"> Transaction History</a> |
+        <a href="changePassword.html">Change Password</a> |
+        <a href="joingame.html">Join Game</a>
+        <a href="admin.html"> Admin Dashboard</a>
+    </nav>
+    
+    <div class="wrapper">
+        <div id="joinGame" class="box">
+            <h2>Join Game</h2>
+            <form id="joinGameForm" action="http://localhost:3000/game/join" method="POST">
+                <div>
+                    <label for="usernameJoin" style="font-family: 'Courier New', Courier, monospace; font-size: 30px;">Username:</label>
+                    <input type="text" id="usernameJoin" name="username" required>
+                </div>
+                <div>
+                    <label for="gameIdJoin" style="font-family: 'Courier New', Courier, monospace; font-size: 30px;">Game ID:</label>
+                    <input type="text" id="gameIdJoin" name="gameId" required>
+                </div>
+                <div>
+                    <button type="submit" style="padding: 10px; border-radius: 10px; width: 150px; margin-top: 10px;">Join Game</button>
+                </div>
+                <div style="margin-top: 10px;">Back to Home Page <a href="index.html">Home</a></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('joined') === 'true') {
+                alert('You have joined the game successfully!');
+            }
+        });
+    </script>
+
+</body>
+</html>

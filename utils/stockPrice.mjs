@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiKey = "odJr45ZZFM4cuEjXWIdaHHh6FlgSRf9F"; 
+const apiKey = "5wQ2u005wEIBgfAn4oZ3HzUAzhDijxpD"; 
 const baseUrl = 'https://financialmodelingprep.com/api/v3';
 
 // Function to fetch the latest stock price

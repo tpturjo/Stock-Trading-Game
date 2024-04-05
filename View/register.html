@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register/Login</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div id="register" class="box">
+            <h1 id="stockTradingGame" style="color: rgb(245, 245, 245); font-size: 30px; text-align: center;">Stock Trading Game</h1>
+            <h2>Register</h2>
+            <form id="registerForm" action="http://localhost:3000/users/register" method="POST">
+                <div>
+                    <label for="usernameReg" style="font-family: 'Courier New', Courier, monospace;
+                    font-size: 30px;">Username:</label>
+                    <input type="text" id="usernameReg" name="username" required>
+                </div>
+                <div>
+                    <label for="passwordReg" style="font-family: 'Courier New', Courier, monospace;
+                    font-size: 30px;">Password:</label>
+                    <input type="password" id="passwordReg" name="password" required>
+                </div>
+                <div style>
+                    <button type="submit" style="padding: 10px; border-radius: 10px; width: 150px;
+                margin-top: 10px;">Register</button>
+                </div>
+                <div style="margin-top: 10px;">Back to Log in Page <a href="login.html">Log In</a></div>
+                
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('registered') === 'true') {
+                alert('Registration successful! Please log in.');
+            }
+        });
+    </script>
+
+    
+</body>
+</html>

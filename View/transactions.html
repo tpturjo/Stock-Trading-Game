@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Transaction History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="login.html">Home</a> |
+        <a href="protfolio.html">Portfolio</a> |
+        <a href="buysell.html">Buy/Sell Stocks</a> |
+        <a href="transactions.html"> Transaction History</a> |
+        <a href="changePassword.html">Change Password</a> |
+        <a href="joingame.html">Join Game</a>
+        <a href="admin.html"> Admin Dashboard</a>
+    </nav>
+    <div class="wrapper">
+        <div class="box">
+            <h2>Transaction History</h2>
+            <form id="fetchTransactionsForm">
+                <div>
+                    <label for="usernameTransactions">Username:</label>
+                    <input type="text" id="usernameTransactions" name="username" required>
+                </div>
+                <div>
+                    <button type="submit">Get</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('fetchTransactionsForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const username = document.getElementById('usernameTransactions').value.trim();
+            if (username) {
+                window.location.href = `http://localhost:3000/portfolio/${encodeURIComponent(username)}/transactions`;
+            } else {
+                alert('Please enter a username.');
+            }
+        });
+    </script>
+
+</body>
+</html>

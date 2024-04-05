@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div id="login" class="box">
+            <h1 id="stockTradingGame" style="color: rgb(245, 245, 245); font-size: 30px; text-align: center;">Stock Trading Game</h1>
+            <h2>Log In</h2>
+            <form id="loginForm" action="http://localhost:3000/users/login" method="POST">
+                <div>
+                    <label for="usernamelog" style="font-family: 'Courier New', Courier, monospace;
+                    font-size: 30px;">Username:</label>
+                    <input type="text" id="usernamelog" name="username" required>
+                </div>
+                <div>
+                    <label for="passwordlog" style="font-family: 'Courier New', Courier, monospace;
+                    font-size: 30px;">Password:</label>
+                    <input type="password" id="passwordlog" name="password" required>
+                </div>
+                <div style>
+                    <button type="submit" style="padding: 10px; border-radius: 10px; width: 150px;
+                margin-top: 10px;">Log In</button>
+                </div>
+                <div style="margin-top: 10px;">Don't have an account? <a href="register.html">Register</a></div>
+                
+            </form>
+        </div>
+    </div>
+      
+</body>
+
+</html>

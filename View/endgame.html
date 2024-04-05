@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <div class="back-button-container">
+                <a href="admin.html" class="back-button">Back to Admin Panel</a>
+            </div>            
+            <h2>End Game</h2>
+            <form id="endGameForm" action="http://localhost:3000/game/end" method="POST">
+                <div>
+                    <label for="adminUsername">Admin Username:</label>
+                    <input type="text" id="adminUsername" name="adminUsername" required>
+                </div>
+                <div>
+                    <label for="gameId">Game ID:</label>
+                    <input type="text" id="gameId" name="gameId" required>
+                </div>
+                <div>
+                    <button type="submit">End Game</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

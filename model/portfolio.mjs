@@ -30,6 +30,7 @@ class Portfolio {
 
      // Method for buy stock
     async buyStock(symbol, quantity, price, gameId = null) {
+        quantity = Number(quantity)
         if (gameId) {
             const gameIndex = this.games.findIndex(g => g.gameId.equals(new ObjectId(gameId)));
             if (gameIndex > -1) {
@@ -67,6 +68,7 @@ class Portfolio {
     
     // Method for sell stock
     async sellStock(symbol, quantity, price, gameId = null) {
+        quantity = Number(quantity)
         if (gameId) {
             const gameIndex = this.games.findIndex(g => g.gameId.equals(new ObjectId(gameId)));
             if (gameIndex > -1) {
