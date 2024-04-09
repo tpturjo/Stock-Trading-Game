@@ -1,5 +1,8 @@
 
 
+
+
+
 # Part III Feedback CS3100 (due Apr 5, 2024)
 
 ## Evaluation
@@ -89,7 +92,7 @@ Credit will be equally divided among 9 features, portioned as follows:
     * **6/6 points**: video demo and running code demonstrate working code as operated from client-side interface
 
 
-**00/144 points** total
+* **144/144 points** TOTAL
 
 
 
